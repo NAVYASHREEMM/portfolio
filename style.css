@@ -496,7 +496,23 @@ section{
 #contact-form textarea{
     width:100%;
 }
+.nav-links{
+    position:absolute;
+    top:70px;
+    right:20px;
+    width:220px;
+    background:black;
+    flex-direction:column;
+    align-items:center;
+    gap:1.5rem;
+    padding:2rem;
+    border-radius:20px;
+    display:none;
+}
 
+.nav-links.active{
+    display:flex;
+}
 }
 
         
