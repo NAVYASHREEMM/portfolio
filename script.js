@@ -1,19 +1,24 @@
 emailjs.init("qwJBVeVuwDRZQpWA3");
 
+// Mobile Menu
+const menuIcon = document.getElementById("menu-icon");
+const navLinks = document.querySelector(".nav-links");
+
+menuIcon.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+// Contact Form
 const contactForm = document.getElementById("contact-form");
 
-contactForm.addEventListener("submit", function(event){
+contactForm.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
     const templateParams = {
-
         name: document.getElementById("name").value,
-
         email: document.getElementById("email").value,
-
         message: document.getElementById("message").value
-
     };
 
     emailjs.send(
@@ -21,47 +26,13 @@ contactForm.addEventListener("submit", function(event){
         "template_48fe1di",
         templateParams
     )
-
-    .then(function(){
-
+    .then(() => {
         alert("✅ Message sent successfully!");
-
         contactForm.reset();
-
     })
-
-    .catch(function(error){
-
+    .catch((error) => {
         alert("❌ Failed to send message.");
-
         console.log(error);
-
     });
 
 });
-@media (max-width:768px){
-
-    .nav-links{
-        position:absolute;
-        top:100%;
-        right:0;
-        width:220px;
-        background:black;
-        border-radius:15px;
-        padding:20px;
-        display:none;
-        flex-direction:column;
-        gap:20px;
-    }
-
-    .nav-links.active{
-        display:flex;
-    }
-
-    #menu-icon{
-        display:block;
-        cursor:pointer;
-        color:white;
-        font-size:2rem;
-    }
-}
